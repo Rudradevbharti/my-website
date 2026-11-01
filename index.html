@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111532">
+  <meta name="description" content="An independent guide to publicly listed Apna College courses, with verified course links, skills, status notes and inquiry-only access information.">
+  <title>Apna College Course Guide — Independent Learning Atlas</title>
+  <style>
+    :root {
+      --ink: #171a36;
+      --muted: #636881;
+      --soft: #f6f6fb;
+      --line: #e6e7ef;
+      --navy: #111532;
+      --purple: #6747df;
+      --purple-dark: #5133c7;
+      --purple-soft: #f0edff;
+      --blue-soft: #ebf2ff;
+      --green: #247b57;
+      --green-soft: #e9f6ef;
+      --amber: #8a5a0a;
+      --amber-soft: #fff4df;
+      --white: #fff;
+      --shadow: 0 18px 50px rgba(32, 28, 80, .08);
+      --radius: 18px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #fff;
+      scroll-behavior: smooth;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; color: var(--ink); background: #fff; line-height: 1.55; overflow-x: hidden; }
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid #8c77ff; outline-offset: 3px; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .announcement { background: #111532; color: #f8f8ff; font-size: 13px; }
+    .announcement-inner { display:flex; gap:10px; align-items:center; justify-content:center; min-height:36px; text-align:center; }
+    .announcement-dot { width:7px; height:7px; border-radius:50%; background:#a995ff; flex:0 0 auto; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(230,231,239,.9); }
+    .nav { display:flex; align-items:center; justify-content:space-between; min-height:76px; gap:28px; }
+    .brand { text-decoration:none; display:flex; align-items:center; gap:11px; min-width:190px; }
+    .brand-mark { display:grid; grid-template-columns:repeat(2,10px); gap:3px; width:29px; height:29px; padding:3px; border-radius:9px; background:var(--purple-soft); transform:rotate(-6deg); }
+    .brand-mark i { display:block; border-radius:3px; background:var(--purple); }
+    .brand-mark i:nth-child(2), .brand-mark i:nth-child(3) { opacity:.48; }
+    .brand strong { font-size:15px; letter-spacing:-.04em; line-height:1; }
+    .brand small { display:block; margin-top:4px; color:var(--muted); font-size:10px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; }
+    .nav-links { display:flex; align-items:center; gap:25px; }
+    .nav-links a { text-decoration:none; color:#50546d; font-size:13px; font-weight:650; transition:color .2s ease; }
+    .nav-links a:hover { color:var(--purple); }
+    .nav-action { padding:11px 17px; border-radius:10px; text-decoration:none; background:var(--purple); color:#fff; font-size:13px; font-weight:750; white-space:nowrap; box-shadow:0 6px 16px rgba(103,71,223,.2); }
+    .menu-toggle { display:none; position:relative; align-items:center; justify-content:center; width:44px; height:44px; border:1px solid var(--line); background:#fff; border-radius:12px; color:var(--ink); cursor:pointer; font-size:0; }
+    .menu-toggle::before { content:""; width:18px; height:2px; border-radius:2px; background:currentColor; box-shadow:0 -6px 0 currentColor,0 6px 0 currentColor; }
+    .menu-toggle[aria-expanded="true"]::before { background:transparent; box-shadow:none; }
+    .menu-toggle[aria-expanded="true"]::after { content:"×"; position:absolute; inset:0; display:grid; place-items:center; font-size:25px; line-height:1; }
+    .hero { position:relative; padding:70px 0 62px; overflow:hidden; background:radial-gradient(ellipse at 83% 30%, #f4f0ff 0%, rgba(247,245,255,.7) 24%, transparent 54%), linear-gradient(180deg,#fff 0%,#fff 68%,#fcfbff 100%); }
+    .hero::before { content:""; position:absolute; width:480px; height:480px; border-radius:50%; border:1px solid rgba(103,71,223,.08); top:-236px; right:-116px; }
+    .hero-grid { display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:42px; position:relative; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:7px 11px; border:1px solid #e6e1ff; border-radius:999px; color:#5942c5; background:#faf9ff; font-size:11px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
+    .eyebrow .spark { color:#9a7dff; font-size:14px; }
+    h1 { margin:20px 0 18px; max-width:690px; color:var(--navy); font-size:clamp(40px,5.1vw,68px); line-height:1.03; letter-spacing:-.06em; font-weight:850; }
+    h1 span { color:var(--purple); }
+    .hero-copy { max-width:610px; margin:0; color:#5e627a; font-size:17px; line-height:1.7; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:27px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:48px; padding:0 17px; border-radius:11px; border:1px solid transparent; text-decoration:none; font-size:13px; font-weight:750; transition:transform .18s ease, box-shadow .18s ease, background .18s ease; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-primary { background:var(--purple); color:#fff; box-shadow:0 8px 20px rgba(103,71,223,.2); }
+    .btn-primary:hover { background:var(--purple-dark); }
+    .btn-secondary { color:var(--ink); background:#fff; border-color:#dedfeb; }
+    .btn-whatsapp { color:#18563d; background:#e8f7ef; border-color:#d3eddf; }
+    .hero-caveat { display:flex; gap:10px; max-width:590px; margin-top:26px; padding:14px 16px; border:1px solid #f1dfb9; border-radius:13px; background:#fffaf0; color:#684c20; font-size:12px; line-height:1.55; }
+    .hero-caveat b { color:#51390e; }
+    .caveat-icon { flex:0 0 auto; font-weight:900; }
+    .hero-art { min-height:390px; position:relative; display:grid; place-items:center; }
+    .art-halo { position:absolute; inset:10% 4% 4% 8%; border-radius:45% 55% 45% 55%; background:linear-gradient(135deg,#f5f1ff,#e9e8ff 53%,#f8f6ff); transform:rotate(-5deg); }
+    .art-orbit { position:absolute; width:86%; height:71%; border:1px solid rgba(103,71,223,.15); border-radius:50%; transform:rotate(-23deg); }
+    .art-grid { position:absolute; width:78%; height:72%; opacity:.45; background-image:radial-gradient(#8d7bdf 1px,transparent 1.5px); background-size:17px 17px; mask-image:linear-gradient(130deg,transparent 5%,#000 50%,transparent 95%); }
+    .art-card { position:relative; z-index:2; width:min(400px,88%); padding:20px; border:1px solid rgba(255,255,255,.85); border-radius:19px; background:rgba(255,255,255,.84); box-shadow:0 24px 60px rgba(54,43,116,.16); transform:rotate(2deg); }
+    .art-card-head { display:flex; justify-content:space-between; align-items:center; color:#747891; font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .art-chip { padding:6px 9px; border-radius:999px; color:#5942c5; background:#f0edff; letter-spacing:.04em; }
+    .art-title { margin:21px 0 14px; color:var(--navy); font-size:29px; font-weight:850; letter-spacing:-.06em; }
+    .art-rule { height:1px; background:#ebebf2; margin:17px 0; }
+    .art-path { display:grid; gap:10px; }
+    .path-row { display:flex; align-items:center; gap:10px; padding:11px 12px; border:1px solid #eeeef4; border-radius:11px; background:#fff; font-size:12px; color:#41455f; font-weight:700; }
+    .path-bullet { display:grid; place-items:center; flex:0 0 24px; height:24px; border-radius:8px; color:#fff; background:var(--purple); font-size:10px; font-weight:800; }
+    .path-row:nth-child(2) .path-bullet { background:#4e74d8; }
+    .path-row:nth-child(3) .path-bullet { background:#9d60cf; }
+    .art-note { position:absolute; z-index:3; right:3%; bottom:2%; padding:14px 16px; border-radius:13px; background:#151938; color:#fff; box-shadow:0 14px 34px rgba(17,21,50,.2); transform:rotate(-3deg); }
+    .art-note strong { display:block; font-size:18px; line-height:1.1; letter-spacing:-.04em; }
+    .art-note span { display:block; margin-top:5px; color:#c9c8dd; font-size:10px; }
+    .hero-stats { display:flex; align-items:center; gap:24px; margin-top:25px; color:#757990; font-size:11px; font-weight:650; }
+    .hero-stats b { color:var(--ink); }
+    .hero-stats span + span { border-left:1px solid #dedfeb; padding-left:24px; }
+    .section { padding:83px 0; }
+    .section-soft { background:#f8f8fc; }
+    .section-dark { background:#111532; color:#fff; }
+    .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:30px; }
+    .section-kicker { margin:0 0 8px; color:var(--purple); font-size:11px; letter-spacing:.14em; font-weight:850; text-transform:uppercase; }
+    .section-dark .section-kicker { color:#b5a4ff; }
+    h2 { margin:0; color:var(--navy); font-size:clamp(29px,3.4vw,43px); letter-spacing:-.055em; line-height:1.12; }
+    .section-dark h2 { color:#fff; }
+    .section-intro { max-width:640px; margin:12px 0 0; color:var(--muted); font-size:15px; }
+    .section-dark .section-intro { color:#c4c5d4; }
+    .catalog-meta { flex:0 0 auto; text-align:right; color:#72768c; font-size:12px; }
+    .catalog-meta b { display:block; color:var(--ink); font-size:15px; }
+    .controls { display:grid; grid-template-columns:minmax(220px,1fr) 230px; gap:12px; margin:26px 0 20px; }
+    .search-wrap { position:relative; }
+    .search-wrap svg { position:absolute; left:15px; top:50%; transform:translateY(-50%); pointer-events:none; color:#80849b; }
+    .search-input, .category-select { width:100%; height:50px; border:1px solid #e2e3ed; border-radius:11px; background:#fff; color:var(--ink); }
+    .search-input { padding:0 16px 0 44px; }
+    .category-select { padding:0 15px; }
+    .search-input::placeholder { color:#8a8da1; }
+    .filter-chips { display:flex; gap:8px; overflow-x:auto; padding:2px 1px 9px; margin-bottom:18px; scrollbar-width:thin; }
+    .filter-chip { white-space:nowrap; border:1px solid #e2e3ed; border-radius:999px; padding:9px 13px; color:#535770; background:#fff; cursor:pointer; font-size:12px; font-weight:700; min-height:40px; }
+    .filter-chip[aria-pressed="true"] { color:#fff; border-color:var(--navy); background:var(--navy); }
+    .results-line { display:flex; justify-content:space-between; align-items:center; margin:0 0 15px; color:#74788e; font-size:12px; }
+    .results-line strong { color:#343852; }
+    .course-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .course-card { position:relative; display:flex; flex-direction:column; min-width:0; padding:14px; border:1px solid #e7e8f0; border-radius:17px; background:#fff; box-shadow:0 4px 14px rgba(32,28,80,.025); transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .course-card:hover { transform:translateY(-4px); border-color:#d7d1f7; box-shadow:var(--shadow); }
+    .course-cover { position:relative; min-height:145px; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; padding:15px 16px; border-radius:12px; background:linear-gradient(135deg,#211d50,#6046cd 70%,#9c7cff); color:#fff; isolation:isolate; }
+    .course-cover::before { content:""; position:absolute; z-index:-1; width:170px; height:170px; border:1px solid rgba(255,255,255,.26); border-radius:50%; right:-40px; top:-60px; box-shadow:0 0 0 22px rgba(255,255,255,.06),0 0 0 45px rgba(255,255,255,.04); }
+    .course-cover::after { content:""; position:absolute; z-index:-1; right:19px; bottom:19px; width:46px; height:46px; border:1px solid rgba(255,255,255,.38); border-radius:14px; transform:rotate(12deg); }
+    .course-cover[data-tone="blue"] { background:linear-gradient(135deg,#101e45,#3267b5 70%,#8aa6ff); }
+    .course-cover[data-tone="rose"] { background:linear-gradient(135deg,#241b4a,#7450ae 65%,#ce91c8); }
+    .course-cover[data-tone="teal"] { background:linear-gradient(135deg,#113341,#247f8e 72%,#82d3c4); }
+    .course-cover[data-tone="indigo"] { background:linear-gradient(135deg,#111532,#4a46a4 65%,#8277eb); }
+    .course-cover[data-tone="amber"] { background:linear-gradient(135deg,#28203c,#71547e 70%,#c58c81); }
+    .cover-top { display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:9px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.83); }
+    .cover-index { font-variant-numeric:tabular-nums; }
+    .cover-lock { display:flex; gap:5px; align-items:center; padding:5px 8px; border:1px solid rgba(255,255,255,.3); border-radius:999px; background:rgba(15,16,45,.22); font-size:9px; letter-spacing:.06em; }
+    .cover-name { max-width:85%; font-size:26px; font-weight:850; line-height:1; letter-spacing:-.055em; }
+    .cover-sub { margin-top:6px; color:rgba(255,255,255,.77); font-size:10px; font-weight:650; }
+    .card-content { display:flex; flex-direction:column; flex:1; padding:18px 4px 4px; }
+    .card-title-row { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+    .course-card h3 { margin:0; color:#1b1d3c; font-size:18px; letter-spacing:-.04em; line-height:1.2; }
+    .status-pill { flex:0 0 auto; margin-top:1px; padding:5px 8px; border-radius:999px; color:#7c500a; background:#fff4dd; font-size:9px; line-height:1.3; font-weight:850; text-transform:uppercase; letter-spacing:.04em; }
+    .course-desc { margin:11px 0 14px; color:#63677f; font-size:13px; line-height:1.55; }
+    .tag-list { display:flex; flex-wrap:wrap; gap:6px; margin:0 0 14px; }
+    .tag { padding:5px 8px; border:1px solid #ebeaf4; border-radius:7px; color:#4e526e; background:#fafaff; font-size:10px; font-weight:700; }
+    .card-details { display:grid; gap:9px; padding:13px 0 12px; border-top:1px solid #efeff4; }
+    .detail-line { display:grid; grid-template-columns:68px minmax(0,1fr); gap:8px; color:#5d6178; font-size:11px; line-height:1.5; }
+    .detail-line strong { color:#30334c; font-size:10px; text-transform:uppercase; letter-spacing:.055em; }
+    .card-status-note { margin-top:auto; padding:10px 11px; border-radius:9px; color:#73531a; background:#fff8e9; font-size:10px; line-height:1.45; }
+    .source-link { display:inline-flex; gap:5px; align-items:center; margin-top:10px; color:#5d47c3; font-size:11px; font-weight:750; text-decoration:none; }
+    .source-link:hover { text-decoration:underline; }
+    .lock-action { width:100%; margin-top:13px; min-height:44px; padding:10px 12px; border:1px solid #dfd9fb; border-radius:10px; background:#f8f6ff; color:#4936a6; font-size:12px; font-weight:800; cursor:pointer; }
+    .lock-action:hover { background:#eeeaff; }
+    .lock-note { display:block; margin-top:7px; color:#777b8f; font-size:10px; text-align:center; }
+    .empty-state { grid-column:1/-1; padding:44px 20px; text-align:center; border:1px dashed #d8d9e5; border-radius:16px; color:#696d83; background:#fff; }
+    .empty-state strong { display:block; margin-bottom:6px; color:var(--ink); }
+    .note-strip { display:flex; align-items:flex-start; gap:12px; margin-top:22px; padding:15px 17px; border:1px solid #e8e3ff; border-radius:13px; background:#faf9ff; color:#555978; font-size:12px; line-height:1.6; }
+    .note-strip strong { color:#32266e; }
+    .note-mark { color:var(--purple); font-weight:900; }
+    .benefit-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:28px; }
+    .benefit-card { padding:20px; border:1px solid #e6e7ef; border-radius:15px; background:#fff; }
+    .benefit-mark { display:grid; place-items:center; width:39px; height:39px; margin-bottom:14px; border-radius:12px; color:#5b43c4; background:#f0edff; font-size:15px; font-weight:850; }
+    .benefit-card h3 { margin:0 0 8px; font-size:15px; letter-spacing:-.03em; }
+    .benefit-card p { margin:0; color:#666a81; font-size:12px; line-height:1.65; }
+    .section-banner { display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:40px; padding:32px; border:1px solid rgba(255,255,255,.14); border-radius:22px; background:linear-gradient(125deg,#171c47,#28235f 58%,#382878); }
+    .section-banner h2 { color:#fff; }
+    .section-banner p { color:#d0d0e3; font-size:14px; }
+    .banner-points { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+    .banner-point { min-height:63px; display:flex; gap:9px; align-items:center; padding:12px; border:1px solid rgba(255,255,255,.12); border-radius:11px; background:rgba(255,255,255,.05); color:#f4f3ff; font-size:12px; font-weight:650; }
+    .banner-point span { color:#b8a7ff; font-size:15px; }
+    .skills-head { margin-bottom:22px; }
+    .skill-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:11px; }
+    .skill-item { min-height:88px; padding:13px 14px; border:1px solid #e6e7ef; border-radius:12px; background:#fff; }
+    .skill-item strong { display:block; color:#282b48; font-size:13px; }
+    .skill-item span { display:block; margin-top:6px; color:#72768b; font-size:10px; line-height:1.4; }
+    .skill-item details.skill-details { margin-top:5px; border:0; border-radius:0; background:transparent; }
+    .skill-item details.skill-details summary { padding:3px 18px 3px 0; color:#5a45bd; font-size:10px; }
+    .skill-item details.skill-details summary::after { right:2px; font-size:14px; }
+    .skill-item details.skill-details p { padding:5px 0 0; margin:0; color:#535771; font-size:10px; line-height:1.55; }
+    .compare-wrap { width:100%; overflow-x:auto; border:1px solid #e4e5ee; border-radius:15px; background:#fff; scrollbar-width:thin; }
+    .compare-table { width:100%; min-width:820px; border-collapse:collapse; text-align:left; }
+    .compare-table th { padding:14px 15px; background:#f6f5fb; color:#5f6379; font-size:10px; text-transform:uppercase; letter-spacing:.08em; }
+    .compare-table td { padding:15px; border-top:1px solid #eeeef3; vertical-align:top; color:#5d6177; font-size:12px; }
+    .compare-table td:first-child { color:#222541; font-weight:750; }
+    .compare-table a { color:#5b43c4; font-weight:750; text-decoration:none; }
+    .compare-table a:hover { text-decoration:underline; }
+    .table-note { margin:12px 0 0; color:#777b8e; font-size:11px; }
+    .price-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:840px; margin:28px auto 0; }
+    .price-card { position:relative; padding:26px; border:1px solid #e5e5ef; border-radius:18px; background:#fff; box-shadow:0 5px 18px rgba(32,28,80,.04); }
+    .price-card.featured { border:2px solid #8e7df0; box-shadow:0 12px 38px rgba(103,71,223,.12); }
+    .price-label { display:inline-flex; padding:6px 9px; border-radius:999px; color:#654dc8; background:#f1eeff; font-size:9px; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
+    .price-card h3 { margin:14px 0 3px; font-size:20px; letter-spacing:-.04em; }
+    .price { color:#211d4b; font-size:40px; font-weight:850; letter-spacing:-.07em; line-height:1.2; }
+    .price small { margin-left:5px; color:#74788c; font-size:12px; font-weight:650; letter-spacing:0; }
+    .price-desc { margin:8px 0 16px; color:#666a80; font-size:12px; }
+    .price-card ul { display:grid; gap:9px; padding:0; margin:0; list-style:none; color:#4f536b; font-size:12px; }
+    .price-card li { display:flex; gap:8px; align-items:flex-start; }
+    .price-card li::before { content:"✓"; color:#5d48c3; font-weight:900; }
+    .price-warning { max-width:840px; margin:18px auto 0; padding:16px 18px; border:1px solid #efd9aa; border-radius:13px; color:#624a20; background:#fff8e9; font-size:12px; line-height:1.65; }
+    .faq-list { display:grid; gap:10px; max-width:850px; margin:28px auto 0; }
+    details { border:1px solid #e4e5ee; border-radius:12px; background:#fff; }
+    summary { position:relative; padding:17px 46px 17px 18px; color:#282b49; cursor:pointer; list-style:none; font-size:13px; font-weight:750; }
+    summary::-webkit-details-marker { display:none; }
+    summary::after { content:"+"; position:absolute; right:17px; top:50%; transform:translateY(-50%); color:#614aca; font-size:20px; font-weight:450; }
+    details[open] summary::after { content:"−"; }
+    details p { margin:0; padding:0 18px 18px; color:#62667d; font-size:12px; line-height:1.7; }
+    .contact-box { display:grid; grid-template-columns:1fr auto; align-items:center; gap:25px; padding:31px; border-radius:18px; background:#f7f6ff; border:1px solid #e8e4ff; }
+    .contact-box h2 { font-size:30px; }
+    .contact-box p { margin:9px 0 0; color:#63677e; font-size:13px; }
+    footer { padding:35px 0 84px; background:#111532; color:#fff; }
+    .footer-top { display:flex; justify-content:space-between; align-items:flex-start; gap:30px; }
+    .footer-brand { display:flex; align-items:center; gap:10px; font-size:15px; font-weight:800; }
+    .footer-brand .brand-mark { background:rgba(255,255,255,.12); }
+    .footer-copy { max-width:620px; margin:14px 0 0; color:#c3c5d4; font-size:11px; line-height:1.75; }
+    .footer-links { display:grid; gap:9px; min-width:180px; }
+    .footer-links a { color:#d4d2ef; font-size:12px; text-decoration:none; }
+    .footer-links a:hover { color:#fff; text-decoration:underline; }
+    .footer-rule { height:1px; margin:25px 0 15px; background:rgba(255,255,255,.12); }
+    .copyright { color:#a9adbf; font-size:10px; }
+    .floating-wa { position:fixed; z-index:30; right:22px; bottom:20px; display:inline-flex; align-items:center; gap:9px; min-height:50px; padding:0 17px; border:1px solid #ccead9; border-radius:999px; background:#e7f7ee; color:#17563b; box-shadow:0 10px 30px rgba(21,73,51,.17); font-size:12px; font-weight:850; text-decoration:none; }
+    .floating-wa .wa-symbol { display:grid; place-items:center; width:26px; height:26px; border-radius:50%; color:#fff; background:#178b5a; font-size:13px; }
+    .screen-reader { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media (max-width: 930px) {
+      .nav-links { gap:15px; }
+      .nav-links a { font-size:12px; }
+      .nav-action { padding-inline:13px; }
+      .course-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .benefit-grid, .skill-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .hero-grid { gap:22px; }
+      .hero-art { min-height:340px; }
+    }
+    @media (max-width: 720px) {
+      .wrap { width:min(100% - 36px, 560px); }
+      .nav { min-height:66px; gap:12px; }
+      .brand { min-width:0; }
+      .nav-action { display:none; }
+      .menu-toggle { display:inline-flex; }
+      .nav-links { display:none; position:absolute; top:65px; left:0; right:0; padding:12px 18px 18px; border-bottom:1px solid var(--line); background:#fff; box-shadow:0 14px 24px rgba(25,27,57,.08); flex-direction:column; align-items:stretch; gap:0; }
+      .nav-links.open { display:flex; }
+      .nav-links a { min-height:44px; display:flex; align-items:center; border-bottom:1px solid #f0f0f5; font-size:14px; }
+      .hero { padding:48px 0 45px; }
+      .hero-grid { grid-template-columns:1fr; gap:16px; }
+      h1 { max-width:550px; font-size:clamp(41px,11vw,58px); }
+      .hero-copy { font-size:15px; }
+      .hero-art { min-height:300px; margin-top:8px; }
+      .art-note { right:0; bottom:0; }
+      .art-card { width:min(360px,88%); }
+      .hero-stats { gap:13px; font-size:10px; }
+      .hero-stats span + span { padding-left:13px; }
+      .section { padding:62px 0; }
+      .section-head { display:block; }
+      .catalog-meta { margin-top:12px; text-align:left; }
+      .catalog-meta b { display:inline; margin-right:5px; }
+      .controls { grid-template-columns:1fr; }
+      .course-grid { grid-template-columns:1fr; gap:14px; }
+      .course-cover { min-height:133px; }
+      .section-banner { grid-template-columns:1fr; gap:22px; padding:23px; }
+      .banner-points { grid-template-columns:1fr 1fr; }
+      .skill-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .price-grid { grid-template-columns:1fr; }
+      .contact-box { grid-template-columns:1fr; padding:24px; }
+      .contact-box h2 { font-size:27px; }
+      .footer-top { flex-direction:column; }
+      .footer-links { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .floating-wa { right:14px; bottom:14px; width:48px; min-height:48px; height:48px; padding:0; justify-content:center; }
+      .floating-wa:not(:focus-visible) { font-size:0; }
+      .floating-wa .wa-symbol { flex:0 0 26px; }
+      .hero-caveat { padding-right:68px; }
+    }
+    @media (max-width: 390px) {
+      .wrap { width:calc(100% - 30px); }
+      .announcement-inner { font-size:11px; padding:5px 3px; }
+      .hero-actions .btn { width:100%; }
+      .hero-stats { align-items:flex-start; flex-direction:column; gap:7px; }
+      .hero-stats span + span { padding-left:0; border-left:0; }
+      .banner-points { grid-template-columns:1fr; }
+      .filter-chips { margin-right:-15px; padding-right:15px; }
+      .floating-wa { gap:0; width:48px; height:48px; padding:0; font-size:0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement"><div class="wrap announcement-inner"><span class="announcement-dot" aria-hidden="true"></span><span><strong>Independent guide</strong> · not affiliated with or endorsed by Apna College</span></div></div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Course Atlas home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span><strong>Course Atlas</strong><small>Independent course guide</small></span>
+      </a>
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a href="#courses">Courses</a><a href="#skills">Skills</a><a href="#compare">Compare</a><a href="#pricing">Pricing concept</a><a href="#faq">FAQs</a>
+      </nav>
+      <a class="nav-action" href="#contact">Ask about authorized access</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">☰</button>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="spark" aria-hidden="true">✦</span> Independent Apna College course guide</div>
+          <h1>ALL APNA COLLEGE BATCHES <span>IN ONE PLACE</span></h1>
+          <p class="hero-copy">Explore programming, web development, DSA, AI/ML and placement-preparation courses. Compare verified public syllabus details, then confirm current intake and enrollment terms directly with Apna College.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#courses">Explore all batches <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-secondary" href="#skills">View course categories</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/916372903720?text=Hello%21%20I%20visited%20your%20Apna%20College%20Courses%20website.%20I%20want%20to%20know%20more%20about%20the%20available%20batches%20and%20enrollment%20options." target="_blank" rel="noopener noreferrer">Contact on WhatsApp ↗</a>
+          </div>
+          <div class="hero-caveat"><span class="caveat-icon" aria-hidden="true">!</span><span><b>Availability check, Nov 1, 2026:</b> the official pages reviewed show listed start dates that have passed. No future intake is confirmed here; verify the current schedule on the official course page before making plans.</span></div>
+          <div class="hero-stats"><span><b>47</b> official course pages indexed</span><span><b>A–Z</b> early cohorts through 2026</span><span>Enrollment stays with the official provider</span></div>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a structured learning path" role="img">
+          <div class="art-halo"></div><div class="art-orbit"></div><div class="art-grid"></div>
+          <div class="art-card">
+            <div class="art-card-head"><span>Learning map</span><span class="art-chip">Updated guide</span></div>
+            <div class="art-title">Build your next skill.</div>
+            <div class="art-rule"></div>
+            <div class="art-path">
+              <div class="path-row"><span class="path-bullet">01</span>Programming foundations</div>
+              <div class="path-row"><span class="path-bullet">02</span>Projects & problem solving</div>
+              <div class="path-row"><span class="path-bullet">03</span>Career-focused preparation</div>
+            </div>
+          </div>
+          <div class="art-note"><strong>Course access<br>is never implied</strong><span>Check terms before you enroll</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="courses">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="section-kicker">A–Z public archive</p><h2>From early cohorts<br>through the latest listings.</h2><p class="section-intro">Browse all 47 course and batch pages found in Apna College’s public sitemap, alphabetically. Archived cohorts and repeated course families are included; every record links to its official page.</p></div>
+          <div class="catalog-meta"><b>47 official pages indexed</b>Archive checked Nov 1, 2026</div>
+        </div>
+        <div class="controls">
+          <label class="search-wrap"><span class="screen-reader">Search courses by name or skill</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><input class="search-input" id="course-search" type="search" placeholder="Search by batch, topic or skill…" autocomplete="off"></label>
+          <label><span class="screen-reader">Filter by category</span><select class="category-select" id="category-select"><option value="all">All categories</option><option value="dsa">Data Structures & Algorithms</option><option value="web">Web Development</option><option value="fullstack">Full Stack Development</option><option value="java">Java Programming</option><option value="cpp">C++ Programming</option><option value="placement">Placement Preparation</option><option value="interview">Interview Preparation</option><option value="python">Python & AI/ML</option><option value="ai">AI / Machine Learning</option><option value="other">Other listed courses</option></select></label>
+        </div>
+        <div class="filter-chips" aria-label="Quick course filters">
+          <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All courses</button>
+          <button class="filter-chip" type="button" data-filter="dsa" aria-pressed="false">DSA</button>
+          <button class="filter-chip" type="button" data-filter="web" aria-pressed="false">Web development</button>
+          <button class="filter-chip" type="button" data-filter="placement" aria-pressed="false">Placement prep</button>
+          <button class="filter-chip" type="button" data-filter="ai" aria-pressed="false">AI / ML</button>
+        </div>
+        <div class="results-line"><span id="results-count" aria-live="polite"><strong>6</strong> public course listings</span><span>Public descriptions only · access locked</span></div>
+        <div class="course-grid" id="course-grid"></div>
+        <div class="note-strip"><span class="note-mark" aria-hidden="true">i</span><span><strong>Archive scope:</strong> this A–Z index covers the 47 official course pages discoverable in the public sitemap on Nov 1, 2026. It cannot verify deleted, unlisted or pre-sitemap offerings, so it is not proof of every batch ever sold. Dates shown on the pages are historical or have passed; confirm any new intake, price, eligibility and access terms directly with Apna College. <a href="https://www.apnacollege.in/page-sitemap.xml" target="_blank" rel="noopener noreferrer">Open the official sitemap ↗</a></span></div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="benefits">
+      <div class="wrap">
+        <div class="section-banner">
+          <div><p class="section-kicker">Why learn these skills?</p><h2>Build capability,<br>one project at a time.</h2><p>Benefits below reflect topics and learning formats described on the linked course pages. They are learning opportunities—not a promise of a job, internship, income or placement.</p></div>
+          <div class="banner-points"><div class="banner-point"><span>01</span>Practice programming foundations and DSA</div><div class="banner-point"><span>02</span>Develop web and AI project experience</div><div class="banner-point"><span>03</span>Work through interview-focused questions</div><div class="banner-point"><span>04</span>Prepare a portfolio of learning projects</div></div>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit-card"><div class="benefit-mark">01</div><h3>Structured skill-building</h3><p>Pages describe beginner-to-advanced learning paths in programming, DSA, full-stack development and AI/ML.</p></article>
+          <article class="benefit-card"><div class="benefit-mark">02</div><h3>Practice with real projects</h3><p>Some listed paths describe web, full-stack and AI projects that let learners apply concepts in practice.</p></article>
+          <article class="benefit-card"><div class="benefit-mark">03</div><h3>Interview-focused practice</h3><p>Selected batches list curated DSA questions, practice sessions, company-question libraries or aptitude topics.</p></article>
+          <article class="benefit-card"><div class="benefit-mark">04</div><h3>Flexible study, where offered</h3><p>Official pages describe self-paced lectures for some batches, alongside live sessions or community support.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="wrap">
+        <div class="skills-head"><p class="section-kicker">Skills at a glance</p><h2>Match a skill to a verified course.</h2><p class="section-intro">Course names are linked to the public syllabus pages used for this mapping. A skill appears only when the course page specifically lists it.</p></div>
+        <div class="skill-grid" id="skill-grid"></div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="compare">
+      <div class="wrap">
+        <div class="section-head"><div><p class="section-kicker">Compare learning paths</p><h2>Choose by focus—not by hype.</h2><p class="section-intro">Use the official pages to confirm curriculum, inclusions, duration and eligibility before enrolling.</p></div></div>
+        <div class="compare-wrap" role="region" aria-label="Course comparison table" tabindex="0"><table class="compare-table"><thead><tr><th>Course</th><th>Primary focus</th><th>Topics / format listed</th><th>Listed duration</th><th>Start date shown</th><th>Source</th></tr></thead><tbody id="compare-body"></tbody></table></div>
+        <p class="table-note">On a phone, swipe within the comparison table to see all columns. Listed start dates are reproduced from the official pages and are past as of Nov 1, 2026.</p>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="section-head" style="justify-content:center;text-align:center"><div><p class="section-kicker">Pricing concept only</p><h2>Proposed inquiry plans</h2><p class="section-intro" style="margin-inline:auto">These figures are your proposed promotional prices—not Apna College prices, not an offer from Apna College, and not a checkout. They do not currently provide course access.</p></div></div>
+        <div class="price-grid">
+          <article class="price-card"><span class="price-label">Proposed idea · not for sale</span><h3>SINGLE BATCH PLAN</h3><div class="price">₹399 <small>proposed</small></div><p class="price-desc">Concept for asking about one eligible batch.</p><ul><li>Choose one eligible batch</li><li>View public course details</li><li>Contact for authorized enrollment information</li></ul></article>
+          <article class="price-card featured"><span class="price-label">Proposed idea · authorization needed</span><h3>ALL-BATCHES PLAN</h3><div class="price">₹599 <small>proposed</small></div><p class="price-desc">Concept for asking about a possible authorized bundle.</p><ul><li>Explore the public course catalog</li><li>View available learning options</li><li>Ask whether an authorized bundle exists</li></ul></article>
+        </div>
+        <div class="price-warning"><strong>Before accepting any payment:</strong> obtain written authorization to resell or bundle the courses, verify exactly what access rights and support are included, and disclose the terms clearly. This guide has no payment form and does not unlock or deliver Apna College course content. If authorization is not confirmed, remove the proposed amounts and direct learners to the official provider.</div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="faq">
+      <div class="wrap">
+        <div style="text-align:center"><p class="section-kicker">Questions, answered</p><h2>Good to know before you enquire.</h2></div>
+        <div class="faq-list">
+          <details><summary>Is this the official Apna College website?</summary><p>No. This is an independently operated course information and inquiry website. It is not affiliated with or endorsed by Apna College. Use the official site for enrollment, final course details, terms and support.</p></details>
+          <details><summary>Does this include every batch Apna College has ever offered?</summary><p>This index includes the 47 course and batch pages found in Apna College’s public sitemap during the Nov 1, 2026 review. Removed, private, unlisted or pre-sitemap pages may be missing, so this cannot be certified as a complete record of every batch ever sold. Similar alternate URLs for the same cohort are grouped together rather than counted twice.</p></details>
+          <details><summary>Are these batches currently open for enrollment?</summary><p>Availability could not be confirmed from the dates displayed on the public course pages checked on Nov 1, 2026; the listed cohort dates have passed. Check the official listing or contact Apna College for a current intake date.</p></details>
+          <details><summary>Does the WhatsApp button unlock a course?</summary><p>No. It opens an inquiry to the site operator only. It does not provide, unlock, share or sell course content. Enrollment and access remain subject to the official provider's terms and any written authorization.</p></details>
+          <details><summary>Are ₹399 and ₹599 official prices?</summary><p>No. These are proposed promotional-price concepts supplied for this guide. No payment is accepted here. Do not present them as an offer or take payment unless resale or bundle rights and the buyer's exact access rights are confirmed in writing.</p></details>
+          <details><summary>Why don't the course cards use official thumbnails?</summary><p>Course names and public syllabus summaries link to the official pages. Thumbnail reuse permission could not be verified, so this guide uses original typographic card art instead of copying course images.</p></details>
+          <details><summary>Are jobs, placements or income guaranteed?</summary><p>No. Learning can help build technical skills and project experience, but employment, internship, freelance income and placement outcomes are not guaranteed and depend on many factors.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="contact-box"><div><p class="section-kicker">Questions about this guide?</p><h2>Ask about authorized enrollment.</h2><p>WhatsApp is for inquiries only. Confirm current batches and access with the official provider before paying anyone.</p></div><a class="btn btn-primary" href="https://wa.me/916372903720?text=Hello%21%20I%20visited%20your%20Apna%20College%20Courses%20website.%20I%20want%20to%20know%20more%20about%20the%20available%20batches%20and%20enrollment%20options." target="_blank" rel="noopener noreferrer">Message on WhatsApp ↗</a></div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div><div class="footer-brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Course Atlas</div><p class="footer-copy">This is an independently operated course information and inquiry website. It is not the official Apna College website and is not affiliated with or endorsed by Apna College. Course names, images and trademarks belong to their respective owners. Enrollment and access are subject to official terms and authorization.</p></div>
+        <div class="footer-links"><a href="https://www.apnacollege.in/" target="_blank" rel="noopener noreferrer">Official Apna College website ↗</a><a href="https://www.apnacollege.in/page-sitemap.xml" target="_blank" rel="noopener noreferrer">Official public sitemap ↗</a><a href="#courses">Browse the guide</a><a href="#pricing">Pricing concept</a><a href="#faq">Frequently asked questions</a></div>
+      </div>
+      <div class="footer-rule"></div><div class="copyright">© 2026 · Independent course guide · Public details checked Nov 1, 2026 · No payment or course access is provided here.</div>
+    </div>
+  </footer>
+  <a class="floating-wa" href="https://wa.me/916372903720?text=Hello%21%20I%20visited%20your%20Apna%20College%20Courses%20website.%20I%20want%20to%20know%20more%20about%20the%20available%20batches%20and%20enrollment%20options." target="_blank" rel="noopener noreferrer" aria-label="Ask a question on WhatsApp"><span class="wa-symbol" aria-hidden="true">↗</span>WhatsApp inquiry</a>
+
+  <script>
+    const whatsappBase = 'https://wa.me/916372903720?text=';
+    const defaultMessage = 'Hello! I visited your Apna College Courses website. I want to know more about the available batches and enrollment options.';
+    const courses = [
+      {
+        id:'alpha-java', index:'01', title:'Alpha Plus 8.0 (Java)', cover:'ALPHA 8.0', subcover:'JAVA · DSA PATH', tone:'blue',
+        description:'A Java-based path covering programming foundations, data structures, algorithms and advanced DSA.',
+        categories:['dsa','java','placement','interview'], tags:['Java','Data Structures','Algorithms','Quant & aptitude'],
+        skills:['Java','Data Structures','Algorithms','Problem Solving'],
+        features:'300+ curated DSA questions; about 50 live practice sessions; TA support; quant, reasoning and aptitude; completion certificate.',
+        benefits:'Structured Java-to-DSA progression and interview-focused question practice.', duration:'4 months', start:'19 Aug 2026',
+        focus:'DSA in Java', topics:'Java, DSA, advanced DSA, live practice, aptitude', url:'https://www.apnacollege.in/course/alpha-plus8-java'
+      },
+      {
+        id:'alpha-cpp', index:'02', title:'Alpha Plus 8.0 (C++)', cover:'ALPHA 8.0', subcover:'C++ · DSA PATH', tone:'indigo',
+        description:'A C++-based path through programming fundamentals, STL, data structures, algorithms and advanced DSA.',
+        categories:['dsa','cpp','placement','interview'], tags:['C++','STL','Data Structures','Algorithms'],
+        skills:['C++','Data Structures','Algorithms','Problem Solving'],
+        features:'C++ STL; 300+ curated DSA questions; around 50 live practice sessions; TA support; aptitude topics; completion certificate.',
+        benefits:'Practice core coding and algorithmic problem-solving using C++.', duration:'4 months', start:'19 Aug 2026',
+        focus:'DSA in C++', topics:'C++, STL, DSA, advanced DSA, live practice', url:'https://www.apnacollege.in/course/alpha-plus8-cpp'
+      },
+      {
+        id:'delta-9', index:'03', title:'Delta 9.0', cover:'DELTA 9.0', subcover:'FULL STACK · MERN', tone:'teal',
+        description:'A web-development path described as a complete MERN-stack course, from frontend through backend and databases.',
+        categories:['web','fullstack','placement'], tags:['HTML · CSS · JS','React','Node.js','Git & GitHub'],
+        skills:['HTML','CSS','JavaScript','React','Node.js','SQL','Git and GitHub','Full Stack Development','Problem Solving'],
+        features:'React and frontend topics; Node.js, MongoDB and SQL; Git & GitHub; TA/community support; completion certificate; multiple projects.',
+        benefits:'Build web-development practice through full-stack and smaller project examples listed on the official page.', duration:'4.5 months', start:'2 Jun 2026',
+        focus:'Full-stack web development', topics:'MERN, React, Node.js, databases, Git, projects', url:'https://www.apnacollege.in/course/delta-9'
+      },
+      {
+        id:'sigmax', index:'04', title:'SigmaX', cover:'SIGMA X', subcover:'DSA · AI FULL STACK', tone:'rose',
+        description:'A combined placement-preparation path pairing DSA with AI-integrated full-stack development and quant aptitude.',
+        categories:['dsa','web','fullstack','placement','interview','ai','java','cpp'], tags:['DSA','MERN','AI development','Quant & aptitude'],
+        skills:['Java','C++','Data Structures','Algorithms','Problem Solving','HTML','CSS','JavaScript','React','Node.js','SQL','Git and GitHub','Full Stack Development'],
+        features:'DSA in Java/C++; MERN and AI-integrated development; project work; quant & aptitude; TA support; two certificates; listed duration about 9 months.',
+        benefits:'One listed path combines DSA practice, full-stack projects and introductory AI-integrated development topics.', duration:'9 months', start:'19 Aug 2026',
+        focus:'DSA + AI full-stack + placement', topics:'DSA, MERN, AI tools, projects, aptitude', url:'https://www.apnacollege.in/course/sigmax'
+      },
+      {
+        id:'prime-3', index:'05', title:'Prime 3.0 (AI/ML)', cover:'PRIME 3.0', subcover:'PYTHON · AI / ML', tone:'amber',
+        description:'An AI/ML and data-science path with Python, machine learning, deep learning, GenAI and project work.',
+        categories:['python','ai','placement','interview','web'], tags:['Python','Machine Learning','GenAI','Projects'],
+        skills:['Python','SQL','Git and GitHub','HTML','CSS','JavaScript','Problem Solving'],
+        features:'Data preparation; ML and deep learning; GenAI/RAG; AI engineering stack; multiple projects; TA support; completion certificate.',
+        benefits:'Build Python, data and AI/ML knowledge through assignments and project examples listed on the official page.', duration:'About 4.5 months', start:'17 Sep 2026',
+        focus:'AI/ML & data science', topics:'Python, ML, deep learning, GenAI, SQL, projects', url:'https://www.apnacollege.in/course/prime-3'
+      },
+      {
+        id:'sigma-12', index:'06', title:'Sigma 12', cover:'SIGMA 12', subcover:'WEB · DSA · APTITUDE', tone:'blue',
+        description:'An official combo-page listing for full-stack web development, DSA and quant/aptitude preparation.',
+        categories:['dsa','web','fullstack','placement','interview','java','cpp'], tags:['MERN','DSA','Aptitude','Projects'],
+        skills:['Java','C++','Data Structures','Algorithms','Problem Solving','HTML','CSS','JavaScript','React','Node.js','SQL','Git and GitHub','Full Stack Development'],
+        features:'MERN development; DSA in Java/C++; aptitude topics; project examples; TA support; live practice and one-to-one resume review are described on the official page.',
+        benefits:'Combines web and DSA study with aptitude preparation and project examples.', duration:'About 8.5 months (combined path)', start:'2 Jun 2026',
+        focus:'Web + DSA + placement prep', topics:'MERN, DSA, quant & aptitude, projects', url:'https://www.apnacollege.in/course/sigma-12'
+      }
+    ];
+    const archiveFamilies = {
+      alphaReady:{
+        description:'Recorded Java + DSA course page for beginners and pro learners.', focus:'Recorded Java + DSA', topics:'Java fundamentals, data structures, algorithms',
+        categories:['dsa','java','placement','interview'], tags:['Java','DSA','Recorded course'], skills:['Java','Data Structures','Algorithms','Problem Solving'],
+        features:'The official page describes a completely recorded batch with lectures available from day one after purchase, covering Java and DSA. It distinguishes this format from Alpha Batch, which includes additional live mentorship sessions.',
+        benefits:'A self-paced, recorded route into Java and core DSA topics.', duration:'See source page'
+      },
+      alpha:{
+        description:'Java placement-preparation cohorts focused on programming fundamentals and data structures & algorithms.', focus:'Java + DSA', topics:'Java, data structures, algorithms, curated question practice',
+        categories:['dsa','java','placement','interview'], tags:['Java','DSA','Placement prep'], skills:['Java','Data Structures','Algorithms','Problem Solving'],
+        features:'The official cohort pages describe Java and DSA curricula, lecture-led study and question practice. Alpha 2.0 lists 200+ curated questions; Alpha 3.0 lists 400+ video lectures, 300+ questions, 12+ hours of live sessions, and resume/interview preparation. Check each version for its exact access and support.',
+        benefits:'Build Java and DSA foundations with cohort-specific practice and mentoring options.', duration:'Varies by cohort; see source page'
+      },
+      alphaPlusJava:{
+        description:'Java Data Structures & Algorithms (DSA) batch for placement-focused study.', focus:'Java DSA', topics:'Java, DSA, advanced DSA, practice and aptitude where listed',
+        categories:['dsa','java','placement','interview'], tags:['Java','Advanced DSA','Placement prep'], skills:['Java','Data Structures','Algorithms','Problem Solving'],
+        features:'The linked cohort pages describe Java programming, DSA and advanced DSA. Later versions list differing combinations of live practice, doubt support, aptitude/reasoning, company-question resources and certificates; inclusions are cohort-specific.',
+        benefits:'Follow a structured Java-to-DSA learning path; use the source page to check that version’s practice/support.', duration:'Varies by cohort; see source page'
+      },
+      alphaPlusCpp:{
+        description:'C++ Data Structures & Algorithms (DSA) batch for placement-focused study.', focus:'C++ DSA', topics:'C++, DSA, advanced DSA, STL and practice where listed',
+        categories:['dsa','cpp','placement','interview'], tags:['C++','Advanced DSA','Placement prep'], skills:['C++','Data Structures','Algorithms','Problem Solving'],
+        features:'The linked cohort pages describe C++ programming with DSA and advanced DSA; relevant versions also mention STL. Live practice, doubt support, aptitude/reasoning, company-question resources and certificates vary by cohort.',
+        benefits:'Practice algorithmic problem-solving with C++; verify the exact cohort features on its official page.', duration:'Varies by cohort; see source page'
+      },
+      cpp:{
+        description:'Standalone public C++ course pages focused on C++ programming and DSA.', focus:'C++ + DSA', topics:'C++, data structures, algorithms and practice',
+        categories:['dsa','cpp','placement','interview','other'], tags:['C++','DSA','Question practice'], skills:['C++','Data Structures','Algorithms','Problem Solving'],
+        features:'The C++ Course page lists 100+ hours of learning, 300+ questions, TA/community doubt assistance, and a company-question library. The separate C++ DSA page has its own batch syllabus; use each source link for its exact details.',
+        benefits:'Build C++ and DSA practice through a course-specific learning path.', duration:'See source page'
+      },
+      delta:{
+        description:'Web-development and full-stack cohorts, with MERN-stack topics on the official pages.', focus:'Web / full-stack development', topics:'HTML, CSS, JavaScript, React, Node/Express, databases, Git and projects where listed',
+        categories:['web','fullstack'], tags:['Web development','MERN','Projects'], skills:['HTML','CSS','JavaScript','React','Node.js','SQL','Git and GitHub','Full Stack Development','Problem Solving'],
+        features:'Official Delta cohort pages describe front-end and back-end web development, React, databases and project work. Depending on version, pages list HTML/CSS/JavaScript, Node.js/Express, SQL/MongoDB, Git/GitHub, live sessions and different access periods. Check that cohort page for the exact syllabus.',
+        benefits:'Apply web-development concepts in project work described by the relevant cohort page.', duration:'Varies by cohort; see source page'
+      },
+      sigma:{
+        description:'Combined placement-preparation cohorts pairing DSA with web development; some versions also list aptitude preparation.', focus:'DSA + web development', topics:'DSA, MERN/full-stack development, placement topics and projects where listed',
+        categories:['dsa','web','fullstack','placement','interview','java'], tags:['DSA','Full stack','Placement prep'], skills:['Java','Data Structures','Algorithms','Problem Solving','HTML','CSS','JavaScript','React','Node.js','SQL','Git and GitHub','Full Stack Development'],
+        features:'Sigma pages combine DSA with web development; many cohorts list MERN, projects and placement/aptitude topics. Live practice, TA/community support, company-question libraries, resume review, duration and access vary across versions—open the exact cohort page.',
+        benefits:'Compare combined DSA and development paths instead of treating similarly named cohorts as identical.', duration:'Varies by cohort; see source page'
+      },
+      sigmaPrime:{
+        description:'Sigma + AI/ML combination pages for development, DSA and AI-related study.', focus:'Sigma + AI/ML', topics:'DSA, web development, data/AI, deep learning/GenAI and projects where listed',
+        categories:['dsa','web','fullstack','placement','interview','ai','python'], tags:['DSA','Full stack','AI / ML'], skills:['Java','Data Structures','Algorithms','HTML','CSS','JavaScript','React','Node.js','Python','SQL','Git and GitHub','Full Stack Development','Problem Solving'],
+        features:'The official pages describe the Sigma DSA + development path with added AI/ML and data topics, including deep learning/GenAI concepts and project work. TA support, certificates, duration and other inclusions depend on the exact Sigma Prime version.',
+        benefits:'Explore an integrated DSA, development and AI/ML curriculum; confirm each version’s additions on its source page.', duration:'Varies by cohort; see source page'
+      },
+      prime:{
+        description:'AI/ML and data-science batches for learners exploring AI-oriented technical roles.', focus:'AI/ML + data science', topics:'Python, data preparation, machine learning, deep learning, GenAI and projects where listed',
+        categories:['python','ai','placement','interview'], tags:['Python','Machine learning','Projects'], skills:['Python','SQL','Git and GitHub','HTML','CSS','JavaScript','Problem Solving'],
+        features:'Prime pages describe Python, data handling, machine learning, deep learning, GenAI/LLMs and project work. TA support, certificates, duration and schedule are listed differently by version; use the official cohort page for exact inclusions.',
+        benefits:'Build a learning path through Python, AI/ML concepts and project examples listed by the course.', duration:'Varies by cohort; see source page'
+      },
+      aiArmy:{
+        description:'A separate official “Complete AI/ML Batch” course page for upskilling.', focus:'AI/ML upskilling', topics:'AI/ML concepts and projects; see official page for the complete outline',
+        categories:['python','ai','other'], tags:['AI / ML','Upskilling','Projects'], skills:['Python','SQL','Git and GitHub','Problem Solving'],
+        features:'The official page is titled “Complete AI/ML Batch” and describes an AI/ML upskilling course with projects. Its page shows conflicting start-date references (21 Mar and 5 Apr 2026), so this archive flags the date for confirmation rather than choosing one.',
+        benefits:'Review the official syllabus and schedule before deciding whether it fits your learning goals.', duration:'See source page'
+      }
+    };
+    const archiveEntries = [
+      {id:'alpha-ready-1',title:'Alpha Ready (Batch 1)',url:'https://www.apnacollege.in/course/placement-course-java',family:'alphaReady',start:'Date not stated on page',extra:'Recorded format'},
+      {id:'alpha-2',title:'Alpha Batch 2.0',url:'https://www.apnacollege.in/course/alpha-batch-2',family:'alpha',start:'Historic page; date not stated',featureOverride:'Java + DSA placement course; the official page lists 200+ curated questions, self-paced learning, one-year access and a completion certificate.'},
+      {id:'alpha-3',title:'Alpha Batch 3.0',url:'https://www.apnacollege.in/course/alpha-batch-3',family:'alpha',start:'7 Jan 2023',featureOverride:'The page lists 400+ video lectures, 300+ curated questions, 12+ hours of live sessions, live resume/interview preparation, a 3.5-month course duration and one-year access.'},
+      {id:'alpha-4',title:'Alpha Batch 4.0',url:'https://www.apnacollege.in/course/alpha-batch-4',family:'alpha',start:'7 Apr 2023'},
+      {id:'alpha-5',title:'Alpha Batch 5.0',url:'https://www.apnacollege.in/course/alpha-batch-5',family:'alpha',start:'18 Jun 2023'},
+      {id:'alpha-plus-1',title:'Alpha Plus Batch',url:'https://www.apnacollege.in/course/alpha-plus',family:'alphaPlusJava',start:'17 Sep 2023'},
+      {id:'alpha-plus-2',title:'Alpha Plus Batch 2.0',url:'https://www.apnacollege.in/course/alpha-plus-2',family:'alphaPlusJava',start:'24 Dec 2023'},
+      {id:'alpha-plus-3',title:'Alpha Plus Batch 3.0',url:'https://www.apnacollege.in/course/alpha-plus-batch-3',family:'alphaPlusJava',start:'17 May 2024'},
+      {id:'alpha-plus-4',title:'Alpha Plus Batch 4.0',url:'https://www.apnacollege.in/course/alpha-plus-4',family:'alphaPlusJava',start:'28 Oct 2024'},
+      {id:'alpha-plus-5-java',title:'Alpha Plus Batch 5.0',url:'https://www.apnacollege.in/course/alpha-plus-5',family:'alphaPlusJava',start:'18 Mar 2025'},
+      {id:'alpha-plus-5-cpp',title:'Alpha Plus Batch 5.0 (C++)',url:'https://www.apnacollege.in/course/alpha-plus-5-cpp',family:'alphaPlusCpp',start:'18 Mar 2025'},
+      {id:'alpha-plus-6-java',title:'Alpha Plus Batch 6.0',url:'https://www.apnacollege.in/course/alpha-plus-6',family:'alphaPlusJava',start:'25 Aug 2025'},
+      {id:'alpha-plus-6-cpp',title:'Alpha Plus 6.0 (C++)',url:'https://www.apnacollege.in/course/alpha-plus-6-cpp',family:'alphaPlusCpp',start:'25 Aug 2025'},
+      {id:'alpha-plus-7-java',title:'Alpha Plus Batch 7.0 (Java)',url:'https://www.apnacollege.in/course/alpha-plus-7-java',family:'alphaPlusJava',start:'7 Feb 2026'},
+      {id:'alpha-plus-7-cpp',title:'Alpha Plus Batch 7.0 (C++)',url:'https://www.apnacollege.in/course/alpha-plus-7-cpp',family:'alphaPlusCpp',start:'7 Feb 2026'},
+      {id:'cpp-course',title:'C++ Course',url:'https://www.apnacollege.in/cpp-course-new',family:'cpp',start:'18 Apr (year not stated on page)'},
+      {id:'cpp-dsa',title:'C++ DSA',url:'https://www.apnacollege.in/course/cpp-dsa',family:'cpp',start:'18 Apr (year not stated on page)'},
+      {id:'complete-ai-ml',title:'Complete AI/ML Batch',url:'https://www.apnacollege.in/course/ai-batch-army',family:'aiArmy',start:'Page shows 21 Mar and 5 Apr 2026'},
+      {id:'delta-1',title:'Delta Batch (Web Development)',url:'https://www.apnacollege.in/course/delta',family:'delta',start:'7 Jun 2023'},
+      {id:'delta-2',title:'Delta Batch 2.0',url:'https://www.apnacollege.in/course/delta-batch-2',family:'delta',start:'31 Aug 2023',featureOverride:'This version lists complete front end and back end, React, SQL/MongoDB, Git/GitHub, industry-style projects, 500+ video lectures, 12+ hours of live sessions, about 4.5 months of study and two-year access.',related:[['Delta 2.0 alternate page (HS)','https://www.apnacollege.in/delta-batch-2hs'],['Delta 2.0 alternate page (TS)','https://www.apnacollege.in/delta-batch-ts'],['Delta 2.0 alternate page (RM)','https://www.apnacollege.in/delta-batch-rm']]},
+      {id:'delta-3',title:'Delta Batch 3.0',url:'https://www.apnacollege.in/course/delta-batch-3',family:'delta',start:'7 Nov 2023'},
+      {id:'delta-feb24',title:"Delta Feb'24",url:'https://www.apnacollege.in/course/delta-feb-24',family:'delta',start:'15 Feb 2024'},
+      {id:'delta-5',title:'Delta 5.0',url:'https://www.apnacollege.in/course/delta-5',family:'delta',start:'9 Aug 2024'},
+      {id:'delta-6',title:'Delta 6.0',url:'https://www.apnacollege.in/course/delta-6',family:'delta',start:'7 Jan 2025'},
+      {id:'delta-7',title:'Delta 7.0',url:'https://www.apnacollege.in/course/delta-7',family:'delta',start:'10 Jun 2025'},
+      {id:'delta-8',title:'Delta 8.0',url:'https://www.apnacollege.in/course/delta-8',family:'delta',start:'19 Nov 2025'},
+      {id:'prime-ai',title:'Prime: AI/ML Batch',url:'https://www.apnacollege.in/course/prime-ai',family:'prime',start:'15 Nov 2025'},
+      {id:'prime-2',title:'Prime 2.0: AI/ML Batch',url:'https://www.apnacollege.in/course/prime-2',family:'prime',start:'21 Mar 2026'},
+      {id:'sigma-batch',title:'Sigma Batch (DSA)',url:'https://www.apnacollege.in/course/sigma-batch',family:'sigma',start:'24 Dec 2023'},
+      {id:'sigma-feb24',title:"Sigma Feb'24 (Development)",url:'https://www.apnacollege.in/course/sigma-feb24',family:'sigma',start:'15 Feb 2024',featureOverride:'The official page describes a DSA + MERN development combination, access to Alpha/Delta communities with TAs, instructor DSA live sessions, weekly DSA doubt sessions, company-question video solutions and two-year course access.',related:[['Sigma 2.0 alternate official page','https://www.apnacollege.in/sigma-es-feb24']]},
+      {id:'sigma-3',title:'Sigma 3.0',url:'https://www.apnacollege.in/course/sigma-3',family:'sigma',start:'17 May 2024'},
+      {id:'sigma-4',title:'Sigma 4.0',url:'https://www.apnacollege.in/course/sigma-4',family:'sigma',start:'9 Aug 2024'},
+      {id:'sigma-5',title:'Sigma 5.0',url:'https://www.apnacollege.in/course/sigma-5',family:'sigma',start:'28 Oct 2024'},
+      {id:'sigma-6',title:'Sigma 6.0',url:'https://www.apnacollege.in/course/sigma-6',family:'sigma',start:'7 Jan 2025',related:[['Sigma 6 campaign page','https://www.apnacollege.in/sigma-6-wa']]},
+      {id:'sigma-7',title:'Sigma 7.0',url:'https://www.apnacollege.in/course/sigma-7',family:'sigma',start:'18 Mar 2025'},
+      {id:'sigma-8',title:'Sigma 8.0',url:'https://www.apnacollege.in/course/sigma-8',family:'sigma',start:'10 Jun 2025'},
+      {id:'sigma-9',title:'Sigma 9.0',url:'https://www.apnacollege.in/course/sigma-9',family:'sigma',start:'25 Aug 2025'},
+      {id:'sigma-10',title:'Sigma 10',url:'https://www.apnacollege.in/course/sigma-10',family:'sigma',start:'19 Nov 2025'},
+      {id:'sigma-11',title:'Sigma 11.0',url:'https://www.apnacollege.in/course/sigma-11',family:'sigma',start:'7 Feb 2026'},
+      {id:'sigma-prime',title:'Sigma Prime',url:'https://www.apnacollege.in/course/sigma-prime',family:'sigmaPrime',start:'19 Nov 2025'},
+      {id:'sigma-prime-2',title:'Sigma Prime 2.0',url:'https://www.apnacollege.in/course/sigma-prime-2',family:'sigmaPrime',start:'7 Feb 2026'},
+    ];
+    const archiveTones=['blue','indigo','rose','teal','amber'];
+    archiveEntries.forEach((entry,i)=>{
+      const family=archiveFamilies[entry.family];
+      courses.push({...family,...entry,description:entry.description||family.description,features:entry.featureOverride||family.features,cover:(entry.cover||entry.title).toUpperCase().replace(/\bBATCH\b/g,'').replace(/\s+/g,' ').trim().slice(0,18),subcover:family.focus.toUpperCase().slice(0,30),tone:archiveTones[i%archiveTones.length],index:String(i+7).padStart(2,'0'),archive:true});
+    });
+    courses.sort((a,b)=>a.title.localeCompare(b.title,'en',{sensitivity:'base',numeric:true}));
+    courses.forEach((c,i)=>c.index=String(i+1).padStart(2,'0'));
+
+    const skillNames = ['HTML','CSS','JavaScript','React','Node.js','Java','C++','Python','SQL','Data Structures','Algorithms','Git and GitHub','Full Stack Development','Problem Solving'];
+    const grid = document.getElementById('course-grid');
+    const search = document.getElementById('course-search');
+    const select = document.getElementById('category-select');
+    const chips = [...document.querySelectorAll('.filter-chip')];
+    let activeFilter = 'all';
+    function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function cardMarkup(c) {
+      const msg = `Hello! I visited your Apna College Courses website. I want to know more about ${c.title} and authorized enrollment options.`;
+      const dateUnclear=/not stated|year not stated|historic page/i.test(c.start);
+      const dateConflict=/page shows/i.test(c.start);
+      const availabilityNote=dateConflict?'Official page shows conflicting cohort dates; confirm with Apna College.':dateUnclear?`Date not confirmed from the public page (${c.start}); current availability is unknown.`:`Listed cohort date: ${c.start}. This is a historical date; a new intake is not verified.`;
+      const related=(c.related||[]).map(([label,url])=>`<a class="source-link related-link" href="${url}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`).join('');
+      return `<article class="course-card" data-categories="${c.categories.join(' ')}" data-search="${esc([c.title,c.description,c.tags.join(' '),c.focus,c.topics,c.features].join(' ').toLowerCase())}">
+        <div class="course-cover" data-tone="${c.tone}" aria-label="Original typographic course cover; not an official thumbnail">
+          <div class="cover-top"><span class="cover-index">COURSE GUIDE / ${c.index}</span><span class="cover-lock" aria-label="Course access is locked">⌑ Access locked</span></div>
+          <div><div class="cover-name">${esc(c.cover)}</div><div class="cover-sub">${esc(c.subcover)}</div></div>
+        </div>
+        <div class="card-content">
+          <div class="card-title-row"><h3>${esc(c.title)}</h3><span class="status-pill">${c.archive?'Historic page':'Verify intake'}</span></div>
+          <p class="course-desc">${esc(c.description)}</p>
+          <div class="tag-list">${c.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+          <div class="card-details"><div class="detail-line"><strong>Skills</strong><span>${esc(c.skills.slice(0,6).join(' · '))}${c.skills.length>6?' · more':''}</span></div><div class="detail-line"><strong>Features</strong><span>${esc(c.features)}</span></div><div class="detail-line"><strong>Benefit</strong><span>${esc(c.benefits)}</span></div><div class="detail-line"><strong>Duration</strong><span>${esc(c.duration)}</span></div></div>
+          <div class="card-status-note"><strong>${c.archive?'Historical public listing.':'Current product page, intake unverified.'}</strong> ${esc(availabilityNote)}</div>
+          <a class="source-link" href="${c.url}" target="_blank" rel="noopener noreferrer">View official course page ↗</a>${related}
+          <a class="lock-action" href="${whatsappBase}${encodeURIComponent(msg)}" target="_blank" rel="noopener noreferrer">⌑ &nbsp;Unlock Learning Access · enquire</a>
+          <span class="lock-note">Inquiry only. This link does not unlock or sell course content.</span>
+        </div>
+      </article>`;
+    }
+    function renderCourses() {
+      const q = search.value.trim().toLowerCase();
+      const filtered = courses.filter(c => (activeFilter==='all'||c.categories.includes(activeFilter)) && (!q||[c.title,c.description,c.tags.join(' '),c.focus,c.topics,c.features].join(' ').toLowerCase().includes(q)));
+      document.getElementById('results-count').innerHTML = `<strong>${filtered.length}</strong> ${filtered.length===1?'public course listing':'public course listings'}`;
+      grid.innerHTML = filtered.length ? filtered.map(cardMarkup).join('') : '<div class="empty-state"><strong>No matching course found.</strong>Try a different batch name, topic or category.</div>';
+    }
+    search.addEventListener('input', renderCourses);
+    select.addEventListener('change', () => { activeFilter=select.value; chips.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===activeFilter))); renderCourses(); });
+    chips.forEach(b => b.addEventListener('click', () => { activeFilter=b.dataset.filter; select.value=activeFilter; chips.forEach(x=>x.setAttribute('aria-pressed',String(x===b))); renderCourses(); }));
+    document.getElementById('skill-grid').innerHTML = skillNames.map(skill=>{const matches=courses.filter(c=>c.skills.includes(skill));const names=matches.map(c=>c.title);return `<div class="skill-item"><strong>${esc(skill)}</strong><span>${matches.length} public course page${matches.length===1?'':'s'} mapped</span><details class="skill-details"><summary>See mapped batches</summary><p>${esc(names.join(' · '))}</p></details></div>`}).join('');
+    document.getElementById('compare-body').innerHTML = courses.map(c=>`<tr><td>${esc(c.title)}</td><td>${esc(c.focus)}</td><td>${esc(c.topics)}</td><td>${esc(c.duration)}</td><td>${esc(c.start)} · ${c.archive?'historic page':'intake unverified'}</td><td><a href="${c.url}" target="_blank" rel="noopener noreferrer">Official page ↗</a></td></tr>`).join('');
+    renderCourses();
+    const menuButton=document.getElementById('menu-toggle');
+    const nav=document.getElementById('site-nav');
+    menuButton.addEventListener('click',()=>{const isOpen=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(isOpen));menuButton.setAttribute('aria-label',isOpen?'Close navigation':'Open navigation');menuButton.textContent=isOpen?'×':'☰';});
+    nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open navigation');menuButton.textContent='☰';}});
+  </script>
+</body>
+</html>
